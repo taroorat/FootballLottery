@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def WinLevelLose(bunko):
     df = pd.read_csv("data/home-%s.csv"%bunko,sep=' ')
@@ -11,5 +12,9 @@ def WinLevelLose(bunko):
     df=df.round(2)
     print(df)
     df.to_csv('data/home-%s-answer.csv'%bunko)
+    df = pd.read_csv("data/home-%s-answer.csv" % bunko,usecols=["AGVH","AGVD","AGVA"])
 
-WinLevelLose("level")
+    df.plot(figsize=(15, 5),grid=True)
+    plt.show()
+
+WinLevelLose("lose")
