@@ -15,8 +15,9 @@ df["SCORE"]=df["SCORE"].astype('float')
 for indexs in df.index:
     # print(df.loc[indexs].values[0:5],df.loc[indexs].values[-4:])
     print(df.loc[indexs].values[-4:])
+df.to_csv('data/full-answer-data.csv')
 
+df = pd.read_csv("data/full-answer-data.csv", usecols=['Date', 'HomeTeam', 'AwayTeam','FTHG','FTAG',"AGVH","AGVD","AGVA","SCORE"])
 df.to_csv('data/answer-data.csv')
-
 
 
